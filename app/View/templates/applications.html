@@ -1,0 +1,55 @@
+<!--    
+# ================================================================
+#   Name:           applications html
+#   Description:    Displays all applications for faculty postions
+#   Last Changed:   12/3/21
+#   Changed By:     Reagan Kelley
+#   Change Details: Added student view
+# ================================================================
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class = "coursetable" style = "margin-left: 15%;">
+    <thead>
+      <tr  valign = "bottom">
+        <br>
+        <th width = "20%"> <b>Position</b></th>
+        <th width = "20%"> <b>Applicant</b></th>
+        <th width = "20%"> <b>Email</b></th>
+        <th width = "15%"> <b>Major</b> </th>
+        <th width = "10%"> <b>GPA</b> </th>
+        <th width = "15%"> <b>Status</b> </th>
+
+      </tr>
+    </thead>
+    
+
+
+{% for post in posts %}
+    {% for applicant in post.get_applicants() %}
+        {% set student = applicant.get_applicant() %}
+        {% set profile = student %}
+        {% set position_name = applicant.get_position() %}
+        {% set phantom_application = False %}
+        {% include '_studentapplication.html' %}
+    {% endfor %}
+{% endfor %}
+
+<!-- Now start listing phantom applications -->
+{% if current_user.get_user_type() == 'student' %}
+    {% for application in current_user.applications %}
+        {% if application.post_id == None %}
+            {% set phantom_application = True %} 
+            {% set profile = current_user %}
+            {% include '_studentapplication.html' %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+</table>
+
+{% endblock %}

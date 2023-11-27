@@ -1,0 +1,87 @@
+<!--    
+# ================================================================
+#   Name:           base html
+#   Description:    UI for site header
+#   Last Changed:   12/3/21
+#   Changed By:     Reagan Kelley
+#   Change Details: Added My applcications for student
+# ================================================================
+-->
+
+
+<html>
+    <head>
+       {% if title %}
+       <title> {{ title }} - Lab Opportunities </title>
+       {% else %}
+            <title> Welcome to the Post Portal! </title>
+       {% endif %}
+       <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+       {{ moment.include_moment() }}
+    </head>
+
+    <body style = "background-color: white;">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        {% if current_user.is_anonymous == False %}
+        <div class="sidenav">  
+        <table>
+            
+            <tr>
+                {% if current_user.is_anonymous %}
+
+                
+
+                {% else %}
+                    <img src = "../static/img/WSU_logo_side_bar_3.png" alt = "Sidebar Logo"   style = "position: fixed;width:4%;height:8%; margin-left: 4.5%; ">
+                    <br><br>
+                    <hr color = "white" width = "90%" size = "3%" style="margin-top: 15%;">
+                    <p style = "font-size: 18; font-family:sans-serif; font-weight:bold; text-align:center; color:white; margin-top: 3%; margin-bottom: 1%;"> Welcome, {{ current_user.username }} </p></i>
+                    <hr color = "white" width = "90%" size="3%">
+                    <a href="{{ url_for('routes.index') }}""><p style = "font-size: 20; font-family:sans-serif;"> Home </p></i></a>
+                    
+                    {% if current_user.get_user_type() == 'student' %}
+                    <a href="{{ url_for('routes.student_profile')}}"><p style = "font-size: 20; font-family:sans-serif;"> Profile</p></i></a>
+                    <a href="{{ url_for('routes.applications') }}"><p style = "font-size: 20; font-family:sans-serif;"> My Applications</p></i></a>
+
+                    
+                    {% else %}
+                        <a href="{{ url_for('routes.postposition') }}"><p style = "font-size: 20; font-family:sans-serif;"> New Post</p></i></a>
+                        <a href="{{ url_for('routes.applications') }}"><p style = "font-size: 20; font-family:sans-serif;"> Applications</p></i></a>
+
+                    {% endif %}
+                    <a href="{{ url_for('auth.logout') }}"><p style = "font-size: 20; font-family:sans-serif;"> Logout</p></i></a>
+
+                {% endif %}
+            </tr>
+            
+        </table>
+        </div>
+        {% endif %}
+        <div>
+            {% if current_user.is_anonymous %}
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <br>
+                    <div class = "login-flash-container"">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+            {% else %}
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    
+                    <div class = "flash-container"">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+            {% endif %}
+            {% block content %} {% endblock %}
+        </div>
+
+    </body>
+</html>

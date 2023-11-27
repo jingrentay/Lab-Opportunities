@@ -1,0 +1,71 @@
+<!--    
+# ================================================================
+#   Name:           register html
+#   Description:    UI for register route
+#   Last Changed:   11/15/21
+#   Changed By:     Reagan Kelley
+#   Change Details: Added register error checks
+# ================================================================
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Register</h1>
+
+    {% if form %}
+
+    <form action="" method="post">
+        
+            {{form.hidden_tag()}}
+
+            <p>{{ form.username.label }} </p>
+            <p>{{ form.username(class = 'forminput') }} </p>
+
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <p>{{ form.wsu_id.label }}</p>
+            <p>{{ form.wsu_id(class = 'forminput') }}</p>
+
+            {% for error in form.wsu_id.errors %}
+            <span style="color:red;">{{ error }}</span>
+            {% endfor %}
+
+            <p>{{ form.email.label }} </p>
+            <p>{{ form.email(class = 'forminput') }} </p>
+
+            {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <p>{{ form.password.label }} </p>
+            <p>{{ form.password(class = 'forminput') }} </p>
+
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            <p>{{ form.password2.label }} </p>
+            <p>{{ form.password2(class = 'forminput') }} </p>
+
+            {% for error in form.password2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{form.type.label}} <br>
+            {{form.type(class="formselect") }}<br>
+
+            <br>
+            {{form.submit(class = "button")}}
+
+            
+
+    </form>
+
+
+    {% endif %}
+
+
+{% endblock %}

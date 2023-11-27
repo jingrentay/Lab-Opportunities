@@ -1,0 +1,731 @@
+/*
+# ================================================================
+#   Name:           MAIN CSS
+#   Description:    File contains all styling for app
+#   Last Changed:   12/05/21
+#   Changed By:     Denise Tanumihardja
+#   Change Details: Added couple of review button stylings
+#=================================================================
+*/
+
+body {
+    margin: 1px 1px 1px 15px;
+    padding: 1px;
+    font-family: Tahoma;
+    text-align: left;
+    
+  
+}
+.nav-container {
+    background:#f6f6f6;
+    font-family: Tahoma;
+    font-size: 12px;
+    height: 32px;
+    text-transform: uppercase;
+}
+a:hover {
+	color:#2387D9;
+}
+
+.button {
+    width : 75px;
+    padding : 3px;    
+    font-size: 16px;
+    margin : 5px;
+    padding : 5px;
+    border: 1px solid lightgray;
+}
+.button:hover {
+    background-color: 157dd3;
+    color: white;
+    cursor:pointer;
+}
+
+.flash-container {
+	background:transparent;
+	font-family: Tahoma;
+	font-size: 20px;
+	margin-bottom: -1%;
+  margin-top: 2%;
+	margin-left:15%;
+  font-weight: bold;
+}
+
+.forminput{
+    width : 40%;
+    margin-bottom: 1%;
+    margin-top: 0.5%;
+    padding : 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    border-radius: 20px;
+   
+
+}
+
+.formselect{
+    width : 15%;
+    height : 5%;
+    font-style: normal;
+    margin : 5px 0px 0px 0px;
+    padding : 5px;
+    margin-bottom: 1%;
+}
+
+
+.formtitle {
+	padding : 4px;
+	font-family: sans-serif;
+  margin-top: 3px;
+    margin-bottom: 5px;
+    font-size: 15;
+	width: 600px;
+    height: 25px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px teal;
+    margin-bottom: 1%;
+    
+    
+}
+
+.formbody {
+	padding : 5px;
+	font-family: sans-serif;
+    font-size: 12;
+	width: 600px;
+    height: 125px;
+    border-radius: 10px;
+    box-shadow:5px 5px 5px teal;
+    margin-bottom: 1%;
+    
+}
+
+.formtags {
+  padding-left: 1%;
+	font-family: sans-serif;
+	width: 20%;
+  height: 5%;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+
+.postlist {
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+}
+
+.post-box {
+    display: flex;
+    margin-left: 0%;
+    background-color: white;
+    padding: 5px;
+    width: 90%;
+
+}
+
+.posttable { 
+    width : 100%;
+    margin-left: 0%;
+    margin-bottom: 0%;
+    background-color: white;
+    color: black;
+    border-top: 3px solid crimson;
+    
+}
+
+
+
+.posttitle {
+    text-align: left;
+    font-weight: bold;
+    font-family: Verdana;
+    padding : 5px;
+	font-size: 20px;
+  background-color: white;
+  
+
+}
+
+.postbody {
+    font-family: Verdana;
+    margin-top: 0%;
+    padding : 15px;
+    width: 80%;
+	  font-size: 16px;
+    background-color: rgb(238, 226, 226);
+    
+}
+
+.posttags {
+  text-align: center;
+  font-family: sans-serif;
+  padding: 8px;
+  border-radius: 25px;
+  background: rgb(238, 226, 226);
+  margin: 5px;
+  color:black;
+  display: inline-block;
+}
+
+
+.posttags:hover{
+    opacity: 0.9;
+}
+
+.fieldtags {
+  text-align: left;
+  font-family: sans-serif;
+  border-radius: 25px;
+  background: rgb(238, 226, 226);
+  color: black;
+  padding: 10px;
+  margin: 5px;
+  display: inline-block;
+  
+}
+
+.fieldtags:hover{
+    opacity: 0.9;
+}
+
+.posttimestamp {
+    font-family: Verdana;
+    padding : 5px;
+}
+
+.useritem{
+    text-align: left;
+    margin-top: auto;
+    color: darkred; 
+    text-transform: uppercase;
+    margin-bottom: 0%;
+    display: inline-block;
+}
+
+.apply_button {
+  color: white;
+  text-align: center;
+  font-weight: normal;
+  font-size: 15;
+  padding: 10px;
+  cursor: pointer;
+  width: 12%;
+  position:absolute;
+  right: 28%;
+  border-radius: 30px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  display: inline;
+
+	border: 1px solid gray;
+	background-color: rgb(189, 5, 42);
+  
+}
+
+.apply_button:hover{
+	background-color: white;
+  color: rgb(189, 5, 42);
+}
+
+.unapply_button {
+  color: white;
+  text-align: center;
+  font-weight: normal;
+  font-size: 15;
+  padding: 10px;
+  cursor: pointer;
+  width: 12%;
+  position:absolute;
+  right: 28%;
+  border-radius: 30px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  display: inline;
+  
+	border: 1px solid gray;
+	background-color: rgb(240, 64, 99);
+
+}
+
+.unapply_button:hover{
+	background-color: white;
+	color: rgb(189, 5, 42);
+}
+
+.coursetable tr:hover{
+	background-color: lightgray;
+}
+
+.coursetable {
+	font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+.coursetable td, .coursetable th {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.coursetable tr:nth-child(odd){background-color: #f5ebeb;}
+
+.coursetable tr:hover {background-color: #ddd;}
+
+.coursetable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: rgb(189, 5, 42) ;
+  color: white;
+}
+
+.coursetable tr{
+  text-align: center;
+}
+
+.review_button {
+	width:100px;
+	font-size: 18px;
+	margin: 10px 0px 0px 0px;
+	padding : 5px;
+	border: 1px solid gray;
+  border-radius: 15px;
+	background-color: #E5F6DF;
+}
+
+.review_button:hover{
+	background-color: rgb(150, 56, 56);
+	color: white;
+}
+
+
+.login{
+  width: 30%;
+  padding: 12px 20px;
+  margin: 5px 525px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.button_login{
+  background-color: rgb(150, 56, 56);
+  color: white;
+  padding: 14px 20px;
+  margin: 5px 600px;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+}
+
+.button_login:hover{
+    opacity: 0.8;
+}
+
+.img{
+    max-width : 100%;
+    height : auto;
+}
+
+@media screen and (min-width:800px) and (max-width:1200px){
+    .post-box{
+        width : 100%;
+       
+    }
+    
+    
+}
+ 
+@media screen and (max-width:799px){
+     .post-box{
+         width :100%;
+         
+        }
+}
+ 
+@media screen and (min-width: 1201px){
+     .post-box{
+         width : 80%;
+        
+        }
+}
+
+
+/*taken from https://www.w3schools.com/howto/howto_css_fixed_sidebar.asp */
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 13%; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgb(189, 5, 42); /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+}
+
+
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  background-color: white;
+  color: rgb(189, 5, 42);
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/*taken from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_form_icon */
+.input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 30%;
+    margin-bottom: 15px;
+    margin:auto;
+  }
+  
+  .icon {
+    padding: 10px;
+    background: crimson;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+  }
+  
+  .input-field:focus {
+    border: 2px solid dodgerblue;
+  }
+  
+  /* Set a style for the submit button */
+  .btn {
+    background-color: crimson;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 15%;
+    opacity: 0.9;
+    align-items: center;
+    
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+
+  .btn_update {
+    background-color: crimson;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    opacity: 0.9;
+    align-items: center;
+    border-radius: 15px;
+  }
+
+.manage_button{
+  background-color: rgb(238, 23, 66);
+  color: white;
+  text-align: center;
+  font-weight: normal;
+  font-size: 15;
+  padding: 10px;
+  cursor: pointer;
+  width: 13%;
+  position:absolute;
+  right: 28%;
+  border-radius: 30px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  display: inline;
+}
+
+.manage_button:hover{
+  background-color: white;
+  color: rgb(189, 5, 42);
+}
+
+.updatepos_button {
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: normal;
+  margin-left: 15%;
+  width : 15%;
+	font-size: 20;
+	padding : 5px;
+  color: white;
+	border: 1px solid gray;
+	background-color: rgb(189, 5, 42);
+ 
+}
+
+.updatepos_button:hover{
+  background-color: white;
+  color: rgb(189, 5, 42);
+}
+
+.updatepro_button {
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: normal;
+  width : 15%;
+	font-size: 20;
+	padding : 5px;
+  color: white;
+	border: 1px solid gray;
+	background-color: rgb(189, 5, 42);
+ 
+}
+
+.updatepro_button:hover{
+  background-color: white;
+  color: rgb(189, 5, 42);
+}
+
+
+.submit_button {
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: normal;
+  width : 15%;
+	font-size: 20;
+	padding : 5px;
+  color: white;
+	border: 1px solid gray;
+	background-color: rgb(189, 5, 42);
+  margin-left: 0%;
+}
+
+.submit_button:hover{
+  background-color: white;
+  color: rgb(189, 5, 42);
+}
+
+.refresh_button {
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: normal;
+  width : 40%;
+	font-size: 15;
+	padding : 5px;
+  color: white;
+	border: 1px solid gray;
+	background-color: rgb(189, 5, 42);
+  
+}
+
+.refresh_button:hover{
+  background-color: white;
+  color: rgb(189, 5, 42);
+}
+
+.post_button {
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: normal;
+  width : 20%;
+	font-size: 15;
+	padding : 5px;
+  color: white;
+	border: 1px solid gray;
+	background-color: rgb(189, 5, 42);
+  
+}
+
+.post_button:hover{
+  background-color: white;
+  color: rgb(189, 5, 42);
+}
+
+.interview_button {
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: normal;
+  width : 18%;
+	font-size: 15;
+	padding : 5px;
+  color: black;
+	border: 1px solid gray;
+	background-color: 	#e2d415;
+  margin-left: 15%;
+  font-weight:bold;
+}
+
+.interview_button:hover{
+  background-color: white;
+  color: black;
+}
+
+.hired_button {
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: normal;
+  width : 15%;
+	font-size: 15;
+	padding : 5px;
+  color: black;
+	border: 1px solid gray;
+	background-color: #79d379;
+  margin-left: 15%;
+  font-weight: bold;
+}
+
+.hired_button:hover{
+  background-color: white;
+  color: black;
+}
+
+
+.reject_button {
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: normal;
+  width : 15%;
+	font-size: 14;
+	padding : 5px;
+  color: white;
+	border: 1px solid gray;
+	background-color: rgb(255, 0, 51);
+  margin-left: 15%;
+  font-weight: bold;
+}
+
+.reject_button:hover{
+  background-color: white;
+  color: black;
+}
+
+.review_interview_button {
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: normal;
+  width : 100%;
+	font-size: 14;
+	padding : 5px;
+  color: black;
+	border: 1px solid gray;
+	background-color: #FF7F7F ;
+  font-weight: bold;
+  
+}
+
+.review_interview_button:hover{
+  background-color: white;
+  color: black;
+}
+
+.rejected_review_button{
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: normal;
+  width : 80%;
+	font-size: 14;
+	padding : 5px;
+  color: black;
+	border: 1px solid gray;
+	background-color: #FF7F7F ;
+  font-weight: bold;
+}
+
+.rejected_review_button:hover{
+  background-color: white;
+  color: black;
+}
+
+.login-flash-container {
+  background:transparent;
+  display: flex;
+	font-family: Tahoma;
+	font-size: 20px;
+	color: rgb(167, 34, 11);
+  position:relative;
+  left:40%;
+	text-align: center;
+  font-weight: bold;
+}
+
+
+.profile_button {
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: normal;
+  width : 30%;
+	font-size: 20;
+	padding : 10px;
+  color: white;
+	border: 1px solid gray;
+	background-color: rgb(189, 5, 42);
+ 
+}
+
+.profile_button:hover{
+  background-color: white;
+  color: rgb(189, 5, 42);
+}
+
+.matchtags{
+  
+    text-align: center;
+    font-family: sans-serif;
+    padding: 8px;
+    border-radius: 25px;
+    background: lightgreen;
+    margin: 5px;
+    color:black;
+    display: inline-block;
+  
+  
+}
+
+.personal_statement{
+  margin-left: 15%;
+  font-size: 16;
+  font-family: sans-serif;
+}
+
+.faculty_ref{
+  margin-left: 15%;
+  font-size: 16;
+  font-family: sans-serif;
+}
+
+
+.field_name{
+  margin-left: 15%;
+  font-size: 18;
+  font-family: sans-serif;
+  
+}

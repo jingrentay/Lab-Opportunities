@@ -1,0 +1,92 @@
+<!--    
+# ================================================================
+#   Name:           Update Profile html
+#   Description:    UI for profile route
+#   Last Changed:   11/15/21
+#   Changed By:     Reagan Kelley
+#   Change Details: Fixed validation bug (Added error checks)
+# ================================================================
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style = "margin-left: 15%;">Update Profile</h1>
+
+    {% if update %}
+
+    <form action="" method="post" style="margin-left: 15%;">
+        
+        {{ update.hidden_tag() }}
+
+        <!-- First Name -->
+        {{ update.first_name.label }} <br>
+        {{ update.first_name(class = "formtitle") }} <br>
+
+        <!-- Last Name -->
+        {{ update.last_name.label }} <br>
+        {{ update.last_name(class = "formtitle") }} <br>
+
+        <!-- WSUID  -->
+        {{ update.wsu_id.label }} <br>
+        {{ update.wsu_id(class = "formtitle") }} <br>
+
+        {% for error in update.wsu_id.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        <!-- Phone Number -->
+        {{ update.phone_no.label }} <br>
+        {{ update.phone_no(class = "formtitle") }} <br>
+
+        {% for error in update.phone_no.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+
+        <!-- Major -->
+        {{ update.major.label }} <br>
+        {{ update.major(class = "forminput") }} <br>
+
+        <!-- Research Topics-->
+        {{ update.fields.label}} 
+        {{ update.fields(class="formtags") }} <br><br><br><br><br><br><br><br><br><br>
+        
+        <!-- GPA -->
+        {{ update.gpa.label }} <br>
+        {{ update.gpa(class = "formtitle") }} <br>
+
+        {% for error in update.gpa.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        <!-- Graduation Date -->
+        {{ update.expected_grad_date.label }} <br>
+        {{ update.expected_grad_date(class = "formtitle") }} <br>
+
+        {% for error in update.expected_grad_date.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        <!-- Elective Courses -->
+        {{ update.elect_courses.label }} <br>
+        {{ update.elect_courses(class = "formbody") }} <br>
+
+        <!-- Languages -->
+        {{ update.languages.label }} <br>
+        {{ update.languages(class = "formbody") }} <br>
+        
+        <!-- Prior Research -->
+        {{ update.prior_research.label }} <br>
+        {{ update.prior_research(class = "formbody") }} <br>
+        <br><br>
+    
+        
+
+        {{ update.save(class = "updatepro_button") }}
+        
+    </form>
+
+    {% endif %}
+
+{% endblock %}

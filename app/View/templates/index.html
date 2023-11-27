@@ -1,0 +1,89 @@
+<!--    
+# ================================================================
+#   Name:           Index html
+#   Description:    UI for index route
+#   Last Changed:   11/24/21
+#   Changed By:     Reagan Kelley
+#   Change Details: Revised to compensate for new database model
+# ================================================================
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+  
+    <h1 style="margin-left: 14%;";>Welcome to Lab Opportunities!</h1>
+    <h2 style="margin-left: 14%;"> {{ quote }} </h2> 
+    {% if current_user.get_user_type() == 'student' %}
+    {% if current_user.can_apply() == False %}
+    
+    <h3><span style="color:red; margin-left: 15%;"> ** Your Profile Information needs to be updated! ** <br><br> 
+    
+        <span style = "color:red; margin-left: 15%; "> Go to </span><a style = "text-decoration: none; "href = "{{ url_for('routes.student_profile') }}"> Profile</a> to update. </span> 
+    </h3>
+
+    {% endif %}
+    {% endif %}
+
+    {% if current_user.get_user_type() == 'faculty' %}
+    <form action= "" method = "post" class = "formselect" style="margin-left: 14%; "> <div style="width: auto; margin-bottom: 3%;">Sort by: {{form.hidden_tag()}} Display your posts only {{form.checkbox}}</div> 
+    {{form.refresh (class = "refresh_button")}} </form>
+    <br>
+
+    {% endif %}
+    <h3 style="margin-left: 14%;">Total number of Posts: {{ post_count }} </h3>
+    
+    <!-- Make Lists of Posts -->
+    <table style = "width:85%; margin-left: 13%; " valign="top" >
+    <div class = "postlist">
+    {% for post in posts %}
+       <tr>
+        <th style="width:100%">
+            <div class = "post-box" >{% include '_post.html' %}</div > 
+        </th>
+        <th style= "vertical-align: bottom; text-align:left">
+            {% if (current_user.id == post.writer.id) %}
+                    <form action = "{{url_for('routes.updateposition', post_id = post.id)}}" method="get">
+                    <input type ="submit", value="Manage Post", class="manage_button">
+                    </form>
+            {% endif %}
+                    
+                    
+            {% if current_user.get_user_type() == 'student' %}
+                    {% if current_user.has_applied(post) == false %}
+                        <form action = "{{url_for('routes.submit_application', postid = post.id)}}" method="post">
+                            <input type="submit", value="Send Application", class="apply_button">
+                        </form>
+                    {% else %}
+
+                        {% if current_user.get_status(post) == 'Pending' %}
+                        
+                        <form action = "{{url_for('routes.unapply', postid = post.id)}}" method="post">
+                            <input type="submit", value="Withdraw Application", class="unapply_button">
+                        </form>
+        
+                        {% endif %}
+
+                    {% endif %}
+                    
+            {% endif %}
+
+
+
+            <!-- KEEP THIS HIDDEN ------------------------- -->
+            <style>
+                h2.a {
+                    visibility: hidden;
+                }
+            </style>
+            <h2 class="a">hello </h2>
+            <!-- ------------------------------------------- -->
+
+        </th>
+       </tr>
+    {% endfor %}
+    </div>
+    </table>
+  
+    
+{% endblock %}

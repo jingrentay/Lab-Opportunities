@@ -1,0 +1,59 @@
+<!--    
+# ================================================================
+#   Name:           submit html
+#   Description:    Page where students submit applications
+#   Last Changed:   11/16/21
+#   Changed By:     Reagan Kelley
+#   Change Details: Initial Implementation
+# ================================================================
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style="margin-left: 15%;"> Send New Application: {{ post.title }}</h1>
+
+    <h3 style ="margin-left: 15%;"> Position Overview</h3>
+    <div class="postbody" style="margin-left: 15%;">{{ post.body }}</div>
+
+    <h3 style = "margin-left: 15%;"> Your Info (This will be included in your application) </h3>
+
+    {% set student = current_user %}
+
+    {% include '_profile.html' %}
+
+
+    <h3 style="margin-left: 15%;"> Please fill out the additional information. </h3>
+
+    {% if form %}
+
+    <form action="" method="post" style="margin-left:15%;">
+        {{ form.hidden_tag() }}
+
+        <!-- Personal Statement -->
+        <b>{{ form.personal_statement.label }}</b><br>
+        {{ form.personal_statement(class = "formbody") }} <br>
+
+        {% for error in form.personal_statement.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        <br>
+
+        <!-- Faculty Reference -->
+        <b>{{ form.faculty_ref_name.label }}</b> <br>
+        {{ form.faculty_ref_name(class = "formtitle") }} <br>
+
+        {% for error in form.faculty_ref_name.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        <br>
+        <br>
+        {{ form.submit(class = "submit_button") }}
+
+    </form>
+
+    {% endif %}
+
+{% endblock %}

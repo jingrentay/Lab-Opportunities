@@ -1,0 +1,17 @@
+<!--
+================================================================
+#   Name:           500 error html
+#   Description:    500 error message 
+#   Last Changed:   10/26/21
+#   Changed By:     Denise Tanumihardja
+#   Change Details: Initial implementation of 500error.html (taken from smile project)
+#=================================================================
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>An unexpected error has occurred</h1>
+    <p>The administrator has been notified. Sorry for the inconvenience!</p>
+    <p><a href="{{ url_for('index') }}">Back</a></p>
+{% endblock %}

@@ -1,0 +1,25 @@
+<!--    
+# ================================================================
+#   Name:           Profile html
+#   Description:    UI for profile route
+#   Last Changed:   11/24/21
+#   Changed By:     Reagan Kelley
+#   Change Details: Revised to compensate for new database model
+# ================================================================
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+    <h1 style="margin-left:15%; font-family: sans-serif;">Student Profile</h1>
+    <h2 style="margin-left: 15%; font-family: sans-serif;">Username: {{ current_user.username }}</h2>
+    
+    {% set student = current_user %}
+
+    {% include '_profile.html' %}
+
+    <br>
+    <p><a style = "margin-left: 15%; text-decoration:none; font-family: sans-serif; " class = "profile_button" href = "{{ url_for('routes.update_student_profile') }}"> Update Profile </a> </p>
+    <br>
+{% endblock %}

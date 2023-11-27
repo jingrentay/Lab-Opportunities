@@ -1,0 +1,89 @@
+<!--    
+# ================================================================
+#   Name:           student application html
+#   Description:    A row of data holding all info for a 
+#                   specific student application
+#   Last Changed:   12/5/21
+#   Changed By:     Denise Tanumihardja
+#   Change Details: Added student view
+# ================================================================
+-->
+
+
+<table class = "coursetable" style="margin-left: 15%;">
+    <thead>
+       <tr valign = "middle">
+
+        {% if phantom_application == True %}
+        
+        <td width = "20%"> {{application.phantom_name}} </td>
+        <td width = "20%"> {{profile.first_name}} {{profile.last_name}} </td>
+        <td width = "20%"> {{profile.email }} </td>
+        <td width = "15%"> {{ profile.major }}</td>
+        <td width = "10%"> {{ profile.gpa }} </td>
+        <td width = "15%">   <p style="color:red"> Position No Longer Available </p>  </td>
+        
+        {% else %}
+        
+        
+        
+        <td width = "20%" > {{position_name}} </td>
+        <td width = "20%"> {{profile.first_name}} {{profile.last_name}} </td>
+        <td width = "20%"> {{student.email }} </td>
+        <td width = "15%"> {{ profile.get_major() }}</td>
+        <td width = "10%"> {{ profile.gpa }} </td>
+        <td width = "15%">  
+        
+
+            {% if current_user.get_user_type() == 'faculty' %}
+            {% if applicant.get_status() == 'Pending' %}
+            <form action = "{{url_for('routes.review', postid = post.id, userid = student.id)}}" method="post">
+                <input type="submit", value="Review", class="review_button">
+             </form>
+
+             {% elif applicant.get_status() == 'Reject' %}
+
+              <p style="color:red"></p><br>
+              <form action = "{{url_for('routes.review', postid = post.id, userid = student.id)}}" method="post">
+                <input type="submit", value="Rejected", class="rejected_review_button">
+             </form>
+
+             {% elif applicant.get_status() == 'Interview' %}
+
+             <p style="color:rgb(240, 117, 69); ">  </p><br>
+             <form action = "{{url_for('routes.review', postid = post.id, userid = student.id)}}" method="post">
+                <input type="submit", value="Approved for Interview", class="review_interview_button">
+             </form>
+
+             {% elif applicant.get_status() == 'Hired' %}
+              
+             <b style="color: #013220"> Hired </b>
+
+            {% endif %}
+            {% else %}
+            {% if applicant.get_status() == 'Pending' %}
+                <b style="color:darkgoldenrod"> Pending... </b>
+
+
+             {% elif applicant.get_status() == 'Reject' %}
+
+              <b style="color:red"> Rejected </b>
+
+             {% elif applicant.get_status() == 'Interview' %}
+
+             <b style="color:lightsalmon;"> Approved for Interview </b>
+
+             {% elif applicant.get_status() == 'Hired' %}
+              
+             <b style="color: green"> Hired </b>
+
+            {% endif %}
+
+            {% endif %}
+
+        </td>
+         {% endif %}
+
+       </tr>
+    </thead>
+</table>

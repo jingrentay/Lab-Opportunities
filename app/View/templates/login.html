@@ -1,0 +1,66 @@
+<!--    
+# ================================================================
+#   Name:           login html
+#   Description:    UI for login route
+#   Last Changed:   10/27/21
+#   Changed By:     Tay Jing Ren
+#   Change Details: Added labels and attached styling 
+# ================================================================
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+    <img src = "../static/img/eecs-white.jpg" alt = "EECS"   style = "position: fixed; width: 375px; height: 150px; margin-left: 50%; margin-top: 0%;"> 
+    <img src = "../static/img/1200px-Washington_State_Cougars_logo.svg.png" alt = "WSU logo" style="position: fixed; width: 150px; height: 120px; margin-left: 35%; margin-top: 0%;">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 style="font-family:Arial"><center>Sign In</center></h1>
+    
+    {% if form %}
+    <form action="" method="post">
+
+            {{form.hidden_tag()}}
+
+            <br>
+            
+            <br>
+            
+            <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                <input class="input-field" type="text" placeholder="Username" name="username">
+              </div>
+            
+              <br>
+              
+            
+              <br>
+              <div class="input-container">
+                <i class="fa fa-key icon"></i>
+                <input class="input-field" type="password" placeholder="Password" name="password">
+              </div><br>
+              <div class = "input-container">
+                {% for error in form.password.errors %}
+                <span style="color: red; font-weight: bold;">[{{ error }}]</span>
+                {% endfor %}
+              </div>
+            
+              <br>
+              <br>
+              <center><button type="submit" class="btn" >Login</button></center>
+
+    </form>
+
+    {% endif %}
+
+    <p><center>New User? <a href="{{url_for('auth.register')}}">Click to Register!</center></a></p>
+{% endblock %}
+

@@ -1,0 +1,47 @@
+<!--    
+# ================================================================
+#   Name:           review html
+#   Description:    View page to review an application
+#   Last Changed:   11/16/21
+#   Changed By:     Reagan Kelley
+#   Change Details: Initial Implementation
+# ================================================================
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <br>
+    <h3 style="margin-left: 15%;"> Applicant's General Information </h3>
+    {% set student = application.get_applicant() %}
+    {% set profile = student %}
+
+    {% include '_profile.html' %}
+
+    <h3 style="margin-left: 15%;"> Applicant's Personal Statement </h3>
+
+    <p class = "personal_statement">{{ application.personal_statement}} </p>
+
+    <h3 style="margin-left: 15%;"> Applicant's Reference </h3>
+
+    <p class = "faculty_ref">{{ application.faculty_ref }}</p>
+
+
+    <br>
+
+    <h3 style = "margin-left: 15%;"> What would you like to do with this application? </h3> <br>
+    <form action = "{{url_for('routes.update', postid = application.post_id, userid = application.applicant_id, change = 'Hired')}}" method="post">
+        <input type="submit", value="Hire Applicant", class="hired_button">
+    </form>
+    <br>
+    <form action = "{{url_for('routes.update', postid = application.post_id, userid = application.applicant_id, change = 'Interview')}}" method="post">
+        <input type="submit", value="Approve for Interview", class="interview_button">
+    </form>
+    <br>
+    <form action = "{{url_for('routes.update', postid = application.post_id, userid = application.applicant_id, change = 'Reject')}}" method="post">
+        <input type="submit", value="Reject Applicant", class="reject_button">
+    </form>
+    
+   
+
+{% endblock %}

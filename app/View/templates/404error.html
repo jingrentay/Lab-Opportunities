@@ -1,0 +1,16 @@
+<!--
+================================================================
+#   Name:           404 error html
+#   Description:    404 error message 
+#   Last Changed:   10/26/21
+#   Changed By:     Denise Tanumihardja
+#   Change Details: Initial implementation of 404error.html (taken from smile project)
+#=================================================================
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>File Not Found</h1>
+    <p><a href="{{ url_for('index') }}">Back</a></p>
+{% endblock %}
